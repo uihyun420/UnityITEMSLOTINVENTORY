@@ -2,11 +2,16 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using SaveDataVC = SaveDataV3; // 현재 버젼으로 
+using SaveDataVC = SaveDataV4; // 현재 버젼으로 
 
 public class SaveLoadManager
 {
-    public static int SaveDataVersion { get; } = 3; // 현재 버젼
+    public static int SaveDataVersion { get; } = 4; // 현재 버젼
+
+    static SaveLoadManager()
+    {
+        Load();
+    }
 
     public static SaveDataVC Data { get; set; } = new SaveDataVC();
 
@@ -16,6 +21,7 @@ public class SaveLoadManager
         "Save1.json",
         "Save2.json",
         "Save3.json",
+        "Save4.json",
     };
 
     public static string SaveDirectory => $"{Application.persistentDataPath}/Save";

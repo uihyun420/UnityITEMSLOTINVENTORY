@@ -82,36 +82,36 @@ public class UiInvenSlotList : MonoBehaviour
     public UnityEvent onUpdateSlots;
     public UnityEvent<SaveItemData> onSelectSlot;
 
-    public void Save()
-    {
-        SaveLoadManager.Data.ItemList = saveItemList;
-        SaveLoadManager.Save();
-    }
+    //public void Save()
+    //{
+    //    SaveLoadManager.Data.ItemList = saveItemList;
+    //    SaveLoadManager.Save();
+    //}
 
-    public void Load()
-    {
-        if (SaveLoadManager.Load())
-        {
-            saveItemList = SaveLoadManager.Data.ItemList;
-        }
-        SaveLoadManager.Load();
-        saveItemList = SaveLoadManager.Data.ItemList;
-        UpdateSlots(saveItemList);
-    }
+    //public void Load()
+    //{
+    //    if (SaveLoadManager.Load())
+    //    {
+    //        saveItemList = SaveLoadManager.Data.ItemList;
+    //    }
+    //    SaveLoadManager.Load();
+    //    saveItemList = SaveLoadManager.Data.ItemList;
+    //    UpdateSlots(saveItemList);
+    //}
 
     private void Awake()
     {
     }
 
-    private void OnEnable()
-    {
-        Load();
-    }
+    //private void OnEnable()
+    //{
+    //    Load();
+    //}
 
-    private void OnDisable()
-    {
-        Save();
-    }
+    //private void OnDisable()
+    //{
+    //    Save();
+    //}
 
     private void UpdateSlots(List<SaveItemData> itemList)
     {

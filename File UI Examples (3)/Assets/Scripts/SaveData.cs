@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 [Serializable]
 public abstract class SaveData 
 {
@@ -33,10 +34,6 @@ public class SaveDataV2 : SaveData
     public string Name { get; set; } = string.Empty;
     public int Gold;
 
-
-   
-
-
     public SaveDataV2()
     {
         Version = 2;
@@ -65,11 +62,26 @@ public class SaveDataV3 : SaveData
         ItemList = new List<SaveItemData>();
     }
 
+
+    public override SaveData VersionUp()
+    {
+        throw new NotImplementedException();
+    }
+
+
+}
+
+
+public class SaveDataV4 : SaveData
+{
+    public int SelectedDifficultyIndex;
+    public SaveDataV4()
+    {
+        Version = 4;      
+    }
     public override SaveData VersionUp()
     {
         throw new NotImplementedException();
     }
 }
-
-
 
