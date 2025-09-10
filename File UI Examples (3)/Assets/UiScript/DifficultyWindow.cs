@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +14,22 @@ public class DifficultyWindow : GenericWindow
         base.Open();
         index = SaveLoadManager.Data.SelectedDifficultyIndex;
         toggles[index].isOn = true;
-        Debug.Log("¿ÀÇÂ ¿Ö ¾ÈµÅ");
     }
 
+    public override void Close()
+    {
+        base.Close();
+        SaveLoadManager.Save();
+        //WindowManager windowManager = new WindowManager();
+        //windowManager.Open(0);
+    }
+
+    //public void ClickCloseButton()
+    //{
+    //    WindowManager windowManager = new WindowManager();
+    //    SaveLoadManager.Save();
+    //    windowManager.Open(Windows.Start);
+    //}
 
     public void OnToggle()
     {
@@ -27,9 +41,9 @@ public class DifficultyWindow : GenericWindow
                 if(saveData != null)
                 {
                     saveData.SelectedDifficultyIndex = i;
-                    SaveLoadManager.Save();
+                    //SaveLoadManager.Save();
                 }
-                Debug.Log(i);
+                //Debug.Log(i);
                 break;
             }
         }
